@@ -1,0 +1,10 @@
+$ttl 38400
+example.com.	IN	SOA	80a814aaa89b. admin.example.com. (
+			1433252209
+			10800
+			3600
+			604800
+			38400 )
+example.com.	IN	NS	80a814aaa89b.
+server.example.com.	IN	A	172.17.0.6
+server.staging.example.com.	IN	A	172.17.0.7

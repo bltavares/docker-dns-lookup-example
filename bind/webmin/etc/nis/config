@@ -1,0 +1,5 @@
+max_size=100
+nsswitch_conf=/etc/nsswitch.conf
+manual_build=0
+securenets=/etc/ypserv.securenets
+client_conf=/etc/yp.conf

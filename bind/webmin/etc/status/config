@@ -1,0 +1,11 @@
+snmp_trap=1.3.6.1.4.1.10000.1.1
+columns=2
+pager_cmd=sms_client
+history_purge=30
+snmp_version=2
+history_show=50
+subject_mode=0
+sort_mode=0
+output=0
+sched_offset=0
+index_status=1

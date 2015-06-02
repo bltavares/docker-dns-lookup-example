@@ -1,0 +1,7 @@
+opts_file=/etc/default/iscsitarget
+pid_file=/var/run/iscsi_trgt.pid /var/run/ietd.pid
+ietadm=ietadm
+initiators_file=/etc/iet/initiators.allow
+init_name=iscsitarget
+targets_file=/etc/iet/targets.allow
+config_file=/etc/iet/ietd.conf

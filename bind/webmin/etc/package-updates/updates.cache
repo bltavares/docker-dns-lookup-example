@@ -1,0 +1,106 @@
+$VAR1 = [
+          {
+            'source' => 'trusty-updates',
+            'version' => '1.0.1ubuntu2.8',
+            'arch' => 'amd64',
+            'system' => 'apt',
+            'name' => 'apt',
+            'update' => 'apt'
+          },
+          {
+            'source' => 'trusty-updates',
+            'update' => 'apt-utils',
+            'name' => 'apt-utils',
+            'system' => 'apt',
+            'version' => '1.0.1ubuntu2.8',
+            'arch' => 'amd64'
+          },
+          {
+            'source' => 'trusty-updates',
+            'update' => 'isc-dhcp-client',
+            'name' => 'isc-dhcp-client',
+            'system' => 'apt',
+            'version' => '4.2.4-7ubuntu12.2',
+            'arch' => 'amd64'
+          },
+          {
+            'source' => 'trusty-updates',
+            'update' => 'isc-dhcp-common',
+            'name' => 'isc-dhcp-common',
+            'system' => 'apt',
+            'arch' => 'amd64',
+            'version' => '4.2.4-7ubuntu12.2'
+          },
+          {
+            'source' => 'trusty-updates',
+            'name' => 'libapt-inst1.5',
+            'update' => 'libapt-inst1.5',
+            'arch' => 'amd64',
+            'version' => '1.0.1ubuntu2.8',
+            'system' => 'apt'
+          },
+          {
+            'name' => 'libapt-pkg4.12',
+            'update' => 'libapt-pkg4.12',
+            'version' => '1.0.1ubuntu2.8',
+            'arch' => 'amd64',
+            'system' => 'apt',
+            'source' => 'trusty-updates'
+          },
+          {
+            'system' => 'apt',
+            'arch' => 'amd64',
+            'version' => '2.4.60-2~ubuntu14.04.1',
+            'update' => 'libdrm2',
+            'name' => 'libdrm2',
+            'source' => 'trusty-updates'
+          },
+          {
+            'source' => 'trusty-security',
+            'system' => 'apt',
+            'version' => '1.0.1f-1ubuntu2.12',
+            'arch' => 'amd64',
+            'update' => 'libssl1.0.0',
+            'name' => 'libssl1.0.0'
+          },
+          {
+            'system' => 'apt',
+            'version' => '3.4-3ubuntu0.3',
+            'arch' => 'amd64',
+            'update' => 'libtasn1-6',
+            'name' => 'libtasn1-6',
+            'source' => 'trusty-security'
+          },
+          {
+            'source' => 'trusty-updates',
+            'system' => 'apt',
+            'arch' => 'amd64',
+            'version' => '204-5ubuntu20.12',
+            'update' => 'libudev1',
+            'name' => 'libudev1'
+          },
+          {
+            'source' => 'trusty-security',
+            'system' => 'apt',
+            'version' => '1.0.1f-1ubuntu2.12',
+            'arch' => 'amd64',
+            'update' => 'openssl',
+            'name' => 'openssl'
+          },
+          {
+            'update' => 'rsyslog',
+            'name' => 'rsyslog',
+            'system' => 'apt',
+            'version' => '7.4.4-1ubuntu2.6',
+            'arch' => 'amd64',
+            'source' => 'trusty-updates'
+          },
+          {
+            'update' => 'udev',
+            'name' => 'udev',
+            'system' => 'apt',
+            'arch' => 'amd64',
+            'version' => '204-5ubuntu20.12',
+            'source' => 'trusty-updates'
+          }
+        ];
