@@ -27,4 +27,11 @@ docker run \
   --hostname=client.example.com \
   --dns=$bind_ip \
   --dns-search=. \
-  -ti client-lookup bash
+  client-lookup
+
+docker run \
+  --rm \
+  --hostname=client.staging.example.com \
+  --dns=$bind_ip \
+  --dns-search=. \
+  client-lookup
