@@ -41,6 +41,8 @@ Examples of FQDN:
 - n01-client.dev.staging.example.com
 
 
+Commands to check values on the host:
+
 ```
 hostname -f
 hostname -a
@@ -51,6 +53,7 @@ dnsdomainname
 
 The /etc/resolv.conf must be configured with a DNS server to make the lookups.
 The only expected entry is a `nameserver` entry. If there is no `domain` or `search` entry, it will get it based on the reported hostname from the previous commands.
+
 On docker, `--dns-search=.` prevents additions of the hosts domain lookup in favor of the containers implicit FQDN discovery.
 
 ```
@@ -73,11 +76,13 @@ There are some options to use another environment to fallback the lookup
 - Configure the `search` parameter on `/etc/resolv.conf` to poin to the domain you want to lookup. eg:
 
 Domain: n1.client.dev.example.com
+
 resolv.conf line: `search dev.example.com example.com`
 
 This way it will not use the search option will not be `client.dev.example.com` anymore, and it will search for both `server.dev.example.com` and `server.example.com`, with priority given the order of the list.
 
 - Override per process
+
 According to the man page of resolv.conf http://linux.die.net/man/5/resolv.conf, you can change the resolver on a process.
 Setting the env variable `LOCALDOMAIN` will override the configuration on the resolver.
 
