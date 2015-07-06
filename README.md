@@ -160,3 +160,28 @@ to lookup Consul instead of using the FQDN.
 
 The container DNS resolver is also pointing to the same ip of the web
 ui process. Each agent is capable of querying the cluster equally.
+
+
+## Resolver and alternative libc
+
+Docker has a very small container called
+[Alpine](https://registry.hub.docker.com/_/alpine/). It reaches its
+5Mb using an alternate distro base
+([Alpine Linux](http://alpinelinux.org)) that makes use of
+[musl libc](http://www.musl-libc.org/).
+
+They make use of musl to provide very small binaries that are almost
+completely compatible with the wide spread glibc. Except on the
+resolver.
+
+musl's resolver makes requests in parallel in order to resolve a DNS
+domain and does not use the `search` option to fallback when the
+domain name returns no replies.
+
+If you have interest on the image size, have it in mind that you would
+need to integrate those with a side container running dnsmasq to
+resolve things using the search param. It would act as a proxy DNS,
+trying to include the search as the fallback.
+
+See more on the
+[discussion](https://github.com/gliderlabs/docker-alpine/issues/8)
