@@ -105,3 +105,58 @@ root@client:/# echo 172.17.0.3 server >> /etc/hosts
 root@client:/# curl http://server:8000
 production
 ```
+
+
+## Using Consul with the DNS interface
+
+Consul is a distributed key value system, that also provides health
+checks (with agents) and service discovery capabilities.
+
+To simulate a cluster on a low resource manner, I'm going to use
+Docker containers as lightweight computer units with differnt IP
+addresses.
+
+Running this example on Mac.
+```bash
+eval "$(boot2docker shellinit)"
+boot2docker ssh 'cat > production.index.html' < production.index.html
+boot2docker ssh 'cat > staging.index.html' < staging.index.html
+export file_path="/home/docker"
+
+./consul.sh
+```
+
+Consul was built with the idea of having multiple low latency cluster
+rings, which they call datacenters (dc). It is suggested on a couple
+of issues that you could run each dc as an environmnet. You could
+effectively have two servers processes configured as different dc's on
+the same VM to provide the idea of environments.  There will be two
+cluster rings, the 'dev' dc and the 'staging' dc on the example.
+
+The cluster is running with a single node (a docker container). They
+communicate with each other over the WAN pool, so they can share
+information between each other.
+
+There is another container running consul on client mode, exposing a
+web interface. It is aware of both clusters, so you can see all the
+services on each ring.
+
+After it stands up the "cluster", it will start two servers, one
+configured to serve stagging and the other production.  After it is
+up, we register on the service on the accordingly ring using the HTTP
+interface of Consul. It's a JSON PUT request with the internal docker
+ip to simulate an external node.
+
+Consul has configured a DNS interface that queries for the service
+when you ask for `[service-name].service.[dc].consul`. It returns
+different addresses to each request and could be used as a load
+balancer.
+
+Than we combine what we've seen so far about the resolver in
+combination with the hostname and search parameters on `resolv.conf`.
+The client container is started with the hostname configured to match
+the expected Consul format, but the search parameter could be modified
+to lookup Consul instead of using the FQDN.
+
+The container DNS resolver is also pointing to the same ip of the web
+ui process. Each agent is capable of querying the cluster equally.
