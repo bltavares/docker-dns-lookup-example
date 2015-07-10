@@ -24,6 +24,7 @@ bind_ip=$(docker inspect -f '{{.NetworkSettings.IPAddress}}' bind)
 echo The DNS server is running on $bind_ip and it should be configured manually to point to the correct ips
 echo "server.example.com => $prod_ip"
 echo "server.staging.example.com => $staging_ip"
+echo After changing the configuration, apply the changes on the top right link
 
 # Start a client with a fake dns registred for those
 
